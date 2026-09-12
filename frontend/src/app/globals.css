@@ -17,7 +17,7 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: auto; }
 body { margin: 0; background: var(--blush); color: var(--charcoal); font-family: "DM Sans", sans-serif; }
 button, textarea, input { font: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
@@ -25,7 +25,8 @@ button { cursor: pointer; }
 button:focus-visible, a:focus-visible, textarea:focus-visible, input:focus-visible + * { outline: 3px solid rgba(232, 104, 152, .42); outline-offset: 4px; }
 a { color: inherit; text-decoration: none; }
 
-.app-shell { overflow: hidden; min-height: 100vh; background: radial-gradient(circle at 92% 2%, rgba(255,255,255,.78), transparent 27rem), var(--blush); }
+.app-shell { position: relative; isolation: isolate; overflow: hidden; min-height: 100vh; background: #ffdbed; }
+.waves-background { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }.waves-background canvas { display: block; width: 100%; height: 100%; }.app-content { position: relative; z-index: 1; min-height: 100vh; }
 .nav-bar { width: min(1160px, calc(100% - 48px)); height: 76px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
 .brand { display: inline-flex; align-items: center; gap: 9px; border: 0; background: transparent; color: var(--forest-dark); font-size: 17px; font-weight: 700; padding: 0; }
 .brand-mark { width: 31px; height: 31px; display: inline-flex; align-items: center; justify-content: center; color: white; background: var(--forest); border-radius: 11px 11px 11px 4px; }

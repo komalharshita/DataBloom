@@ -4,6 +4,7 @@ import { FormEvent, useRef, useState } from "react";
 import axios from "axios";
 import dynamic from "next/dynamic";
 import { AlertCircle, ArrowUpRight, BarChart3, Check, ChevronRight, CircleHelp, FileSpreadsheet, Leaf, Loader2, MessageCircle, Sparkles, Upload } from "lucide-react";
+import Waves from "../components/Waves";
 
 const Plot = dynamic(() => import("react-plotly.js"), { ssr: false });
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL?.replace(/\/+$/, "");
@@ -81,6 +82,22 @@ export default function Home() {
   const scrollToUpload = () => uploadRef.current?.scrollIntoView({ behavior: "smooth" });
 
   return <main className="app-shell">
+    <div className="waves-background" aria-hidden="true">
+      <Waves
+        lineColor="#ffe9f4"
+        backgroundColor="#ffdbed"
+        waveSpeedX={0.02}
+        waveSpeedY={0.01}
+        waveAmpX={40}
+        waveAmpY={20}
+        friction={0.76}
+        tension={0.045}
+        maxCursorMove={90}
+        xGap={14}
+        yGap={34}
+      />
+    </div>
+    <div className="app-content">
     <nav className="nav-bar" aria-label="Main navigation">
       <button className="brand" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} aria-label="DataBloom home"><span className="brand-mark"><Leaf size={17} /></span><span>DataBloom</span></button>
       <div className="nav-links"><a href="#how-it-works">How it works</a><a href="#story">Your story</a></div>
@@ -109,6 +126,7 @@ export default function Home() {
     {results && <Results result={results} onAnotherQuestion={anotherQuestion} />}
     {!results && <HowItWorks />}
     <footer><span className="brand"><span className="brand-mark"><Leaf size={15} /></span>DataBloom</span><span>Make data feel human.</span></footer>
+    </div>
   </main>;
 }
 
