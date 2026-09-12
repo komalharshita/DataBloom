@@ -1,0 +1,93 @@
+[
+  {
+    "source_index": 524,
+    "chart_type": "bar",
+    "why_this_chart": "Grouped Bar Chart. This layout places fraud and success metrics side-by-side for each merchant, making it easy to spot security trade-offs without overlapping lines that confuse the eye. It keeps categories distinct so stakeholders can quickly see which QR code types perform best",
+    "visualization": {
+      "title": "QR Payment Performance by Merchant",
+      "type": "bar",
+      "x": "Merchant_Type",
+      "y": "Value"
+    },
+    "insight_style": "Dynamic QR codes used by supermarkets and restaurants show significantly lower fraud attempts while maintaining near-perfect scan success rates.",
+    "prompt_excerpt": "As a software engineer integrating QR code payments for Indian retailers, I need to visualize transaction data: Merchant_Type,QR_Code_Type,Avg_Transaction_Value_INR,Scan_Success_Rate, Fraud_Attempts_Per_1000,Integration_Cost_INR;Kirana_Store,Static,250,98,2,5000;Supermarket,Dynamic,1200,99,0.5,15000;Street_Vendor,Static,100,95,5,2000;Restaurant,Dynamic,800,97,1.2,12000;Pharmacy,Hybrid,450,96,1.8,8"
+  },
+  {
+    "source_index": 1417,
+    "chart_type": "bar",
+    "why_this_chart": "Grouped Bar Chart. This layout places read and write volumes side-by-side for each day, preventing the visual clutter of overlapping lines and making the volume imbalance immediately clear to non-technical viewers.",
+    "visualization": {
+      "title": "Comparison of Read vs Write operations per day.",
+      "type": "bar",
+      "x": "Day",
+      "y": "Value"
+    },
+    "insight_style": "Read activity is consistently three to five times higher than write activity, with significant spikes toward the end of the week.",
+    "prompt_excerpt": "Scenario: A database admin is analyzing the read/write ratio of a production database over a week to decide on a read-replica strategy. Data: | Day | Read Ops (M) | Write Ops (M) | Cache Hit Rate (%) | Latency (ms) | |---|---|---|---|---|---| | Mon | 120 | 30 | 85 | 12 | | Tue | 130 | 35 | 82 | 15 | | Wed | 150 | 40 | 80 | 18 | | Thu | 140 | 38 | 83 | 14 | | Fri | 180 | 50 | 75 | 22 | | Sat | 90 |"
+  },
+  {
+    "source_index": 1086,
+    "chart_type": "line",
+    "why_this_chart": "Line Chart. This format connects performance measurements across increasing load levels, making it easy to see how speed slows down without cluttering the view with too many separate bars. It prevents misinterpretation by clearly separating each hardware model with distinct color",
+    "visualization": {
+      "title": "Performance degradation of HSM models based on concurrent request load.",
+      "type": "line",
+      "x": "Concurrent_Req",
+      "y": "Avg_Handshake_ms"
+    },
+    "insight_style": "TitanSafe-X is the most scalable hardware option, demonstrating the slowest increase in response time as traffic grows.",
+    "prompt_excerpt": "Scenario: A hardware security firm is measuring the time it takes to perform a cryptographic handshake using different hardware security modules (HSMs) under varying concurrent request loads. Data: | HSM_Model | Concurrent_Req | Avg_Handshake_ms | CPU_Load_Pct | Memory_Usage_MB | |---|---|---|---|---| | SecureCore-1 | 10 | 45 | 12 | 128 | | SecureCore-1 | 100 | 110 | 45 | 256 | | SecureCore-1 | 10"
+  },
+  {
+    "source_index": 903,
+    "chart_type": "line",
+    "why_this_chart": "Multi-Series Line Chart. This format connects quarterly data points to highlight upward trends for each office without the visual heaviness of bar charts. It prevents clutter by using distinct colored lines instead of overlapping bars, making it easy to compare progress trajector",
+    "visualization": {
+      "title": "Security Training Completion Rates by Office",
+      "type": "line",
+      "x": "Quarter",
+      "y": "Completion"
+    },
+    "insight_style": "Every office improved their training completion rates over the last three quarters, with Mumbai and Bangalore showing the strongest growth.",
+    "prompt_excerpt": "Scenario: A company is tracking the 'Security Training Completion' rates across different global offices (e.g., Mumbai, Singapore, London, New York). They want to visualize the completion percentage over three quarters. Data: | Office | Q1 Completion (%) | Q2 Completion (%) | Q3 Completion (%) | Total Staff | | :--- | :--- | :--- | :--- | :--- | | Mumbai | 60 | 75 | 90 | 1200 | | Singapore | 70 | "
+  },
+  {
+    "source_index": 784,
+    "chart_type": "scatter",
+    "why_this_chart": "Scatter Plot. This chart family displays individual data points without connecting lines, which prevents viewers from mistakenly assuming a continuous trend between unrelated users and reduces visual clutter when comparing distinct activity levels.",
+    "visualization": {
+      "title": "Correlation between daily step counts and sleep quality for users in India.",
+      "type": "scatter",
+      "x": "Avg Steps",
+      "y": "Sleep Quality"
+    },
+    "insight_style": "Users who take more daily steps consistently report higher sleep quality scores than those who are less active.",
+    "prompt_excerpt": "Scenario: A health-tech app is analyzing the correlation between daily step counts and sleep quality (1-10) for users in India. Data: | User ID | Avg Steps | Sleep Quality | Weight (kg) | Age | |---|---|---|---|---| | U1 | 3,000 | 4 | 85 | 34 | | U2 | 6,000 | 6 | 78 | 29 | | U3 | 10,000 | 8 | 72 | 31 | | U4 | 12,000 | 9 | 70 | 25 | | U5 | 4,000 | 5 | 82 | 40 | | U6 | 8,000 | 7 | 75 | 38 | | U7 | 1"
+  },
+  {
+    "source_index": 1561,
+    "chart_type": "scatter",
+    "why_this_chart": "A scatter plot with trend lines clearly shows how advertising revenue changes relative to viewership ratings for each channel genre. Using distinct colors and separate trend lines for each genre prevents visual clutter and ensures stakeholders can easily see which category earns ",
+    "visualization": {
+      "title": "Scatter chart",
+      "type": "scatter",
+      "x": "TRP",
+      "y": "Ad_Revenue_Lakhs"
+    },
+    "insight_style": "During the IPL season, live sports channels command the highest advertising revenue per viewership rating point, making them the most valuable inventory for media buyers.",
+    "prompt_excerpt": "The following table lists the viewership ratings (TRP) and advertising revenue (INR Lakhs) for prime time news, entertainment, and sports channels in India during IPL season vs. non-IPL season. Visualize the revenue elasticity to viewership using a scatter plot with trend lines per genre. Produce the Vega-Lite schema and a 2-sentence media buyer insight on which genre commands the highest ad reven"
+  },
+  {
+    "source_index": 1081,
+    "chart_type": "histogram",
+    "why_this_chart": "We use a grouped histogram to display the count of houses at each age level, separated by binning method. This representation prevents visual clutter by using distinct colors and side-by-side bars, allowing stakeholders to immediately see how different grouping strategies distrib",
+    "visualization": {
+      "title": "Distribution of house ages categorized by binning method.",
+      "type": "histogram",
+      "x": "HouseAgeYears",
+      "y": null
+    },
+    "insight_style": "The way we group house ages significantly changes how we perceive renovation costs; for example, Quantile binning groups the youngest houses together, while Custom binning isolates older homes with high costs.",
+    "prompt_excerpt": "I am explaining binning methods for feature engineering using a dataset of house ages and renovation costs in Zurich and Mumbai to demonstrate the impact on model interpretability. Data: HouseID,City,HouseAgeYears,RenovationCostLocal,RenovationCostINR,BinMethod. H01,Zurich,10,50000,4500000,Quantile; H02,Mumbai,10,500000,500000,Quantile; H03,Zurich,25,80000,7200000,EqualWidth; H04,Mumbai,25,800000,"
+  }
+]

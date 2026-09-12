@@ -1,0 +1,55 @@
+{
+  "n_records": 2353,
+  "status_counts": {
+    "valid_with_warnings": 1326,
+    "rejected": 798,
+    "valid_visualization_task": 229
+  },
+  "flag_counts": {
+    "prescriptive_claim": 1808,
+    "unsupported_chart_family": 266,
+    "unsupported_causal_claim": 462,
+    "could_not_map_to_databloom_spec": 453,
+    "potentially_hallucinated_values": 516,
+    "unknown_chart_type": 75,
+    "invalid_json_specification": 8,
+    "no_json_object": 3,
+    "non_visual_example": 8,
+    "duplicate_spec": 10,
+    "json_decode:Expecting ':' delimiter": 2,
+    "json_decode:Expecting property name enclosed in double quotes": 1,
+    "json_decode:Expecting value": 1,
+    "json_decode:Expecting ',' delimiter": 1
+  },
+  "chart_type_counts": {
+    "scatter": 777,
+    "unsupported": 266,
+    "bar": 852,
+    "line": 378,
+    "unknown": 75,
+    "histogram": 5
+  },
+  "duplicate_prompt_groups": 0,
+  "duplicate_spec_groups": 10,
+  "n_duplicate_records": 10,
+  "n_cleaned": 1555,
+  "n_fewshot": 7,
+  "fewshot_source_indexes": [
+    524,
+    1417,
+    1086,
+    903,
+    784,
+    1561,
+    1081
+  ],
+  "notes": [
+    "Original file was not modified.",
+    "Cleaned examples are derived and may omit Chart.js/Vega payloads.",
+    "Few-shot examples are style guides only; they must not override calculated evidence."
+  ],
+  "status": "ok",
+  "source": "C:\\Users\\komal\\Documents\\MY CODES\\@Projects\\databloom\\data\\raw\\new dataset.json",
+  "kept": 1555,
+  "dropped": 798
+}
