@@ -1,0 +1,21 @@
+Date,Region,Product,Category,Revenue,Units_Sold,Customer_Rating,Return_Rate
+2023-01-01,North,Widget A,Hardware,1500,100,4.5,0.02
+2023-01-05,South,Widget B,Hardware,2000,150,4.2,0.05
+2023-01-10,East,Software X,Software,5000,50,4.8,0.01
+2023-01-15,West,Widget A,Hardware,1200,80,4.3,0.03
+2023-02-01,North,Software X,Software,6000,60,4.9,0.01
+2023-02-10,South,Widget A,Hardware,1800,120,4.1,0.06
+2023-02-15,East,Widget B,Hardware,2200,160,4.4,0.04
+2023-03-01,West,Software X,Software,4500,45,4.7,0.02
+2023-03-05,North,Widget B,Hardware,2500,180,4.6,0.03
+2023-03-20,South,Software Y,Software,8000,80,4.8,0.01
+2023-04-02,East,Widget A,Hardware,1600,110,4.2,0.04
+2023-04-12,West,Software Y,Software,7500,75,4.9,0.01
+2023-05-01,North,Software Y,Software,9000,90,4.8,0.01
+2023-05-10,South,Widget B,Hardware,2100,140,4.3,0.05
+2023-05-15,East,Software X,Software,5500,55,4.7,0.02
+2023-06-01,West,Widget A,Hardware,1300,85,4.4,0.03
+2023-06-10,North,Software X,Software,6200,62,4.8,0.01
+2023-06-20,South,Software Y,Software,8500,85,4.9,0.01
+2023-07-05,East,Widget B,Hardware,2400,170,4.5,0.03
+2023-07-15,West,Software Y,Software,7800,78,4.8,0.01

@@ -1,0 +1,39 @@
+# Environment
+.env
+backend/.env
+frontend/.env
+frontend/.env.local
+backend/venv/
+venv/
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.coverage
+
+# Node
+node_modules/
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data dumps
+*.xlsx
+*.xls
+!data/sample/**
+data/raw/*.json
+data/processed/*.json
+!data/processed/fewshot_examples.json
+!data/processed/audit_report.json
+!data/processed/preprocessing_report.json
