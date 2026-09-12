@@ -1,0 +1,25 @@
+Week,Region,Product,Channel,Revenue,Units_Sold
+2024-01-07,North,Analytics Suite,Direct,18400,42
+2024-01-14,South,Analytics Suite,Partner,15100,35
+2024-01-21,East,Cloud Desk,Direct,12800,51
+2024-01-28,West,Cloud Desk,Online,10900,46
+2024-02-04,North,Cloud Desk,Partner,14200,55
+2024-02-11,South,Analytics Suite,Direct,19700,44
+2024-02-18,East,Security Hub,Online,9300,29
+2024-02-25,West,Analytics Suite,Direct,17600,40
+2024-03-03,North,Security Hub,Partner,11200,34
+2024-03-10,South,Cloud Desk,Online,13500,57
+2024-03-17,East,Analytics Suite,Direct,22100,49
+2024-03-24,West,Security Hub,Partner,11800,36
+2024-04-07,North,Analytics Suite,Online,20300,47
+2024-04-14,South,Cloud Desk,Direct,16900,62
+2024-04-21,East,Security Hub,Partner,12700,39
+2024-04-28,West,Cloud Desk,Online,15400,65
+2024-05-05,North,Cloud Desk,Direct,18800,71
+2024-05-12,South,Security Hub,Partner,13900,43
+2024-05-19,East,Analytics Suite,Online,24600,54
+2024-05-26,West,Analytics Suite,Direct,23100,51
+2024-06-02,North,Security Hub,Partner,14800,45
+2024-06-09,South,Cloud Desk,Online,18100,76
+2024-06-16,East,Cloud Desk,Direct,21400,82
+2024-06-23,West,Security Hub,Online,16200,48

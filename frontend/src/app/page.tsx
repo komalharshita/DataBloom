@@ -11,6 +11,13 @@ const API_URL = API_BASE_URL ? `${API_BASE_URL}/api/analyze` : undefined;
 
 type Visualization = { title: string; type: string; x: string; y?: string; x_data?: unknown[]; y_data?: unknown[]; insight?: string; rationale?: string };
 type Result = { summary?: string; executive_summary?: string; key_metrics?: { name: string; value: string }[]; visualizations?: Visualization[]; insights?: string[]; recommendations?: string[]; data_quality?: { issue: string; severity: string }[]; overview?: { rows?: number } };
+type SampleDataset = { id: string; category: string; name: string; description: string; rows: number; fileName: string; question: string };
+
+const SAMPLE_DATASETS: SampleDataset[] = [
+  { id: "sales", category: "Sales & Revenue", name: "Regional sales pulse", description: "Weekly revenue across products, regions, and channels.", rows: 24, fileName: "sales-revenue.csv", question: "Which region and product are driving growth?" },
+  { id: "logistics", category: "Logistics & Operations", name: "Delivery operations", description: "Shipment speed, delays, routes, and carrier reliability.", rows: 24, fileName: "logistics-operations.csv", question: "Which routes or carriers have the highest delivery delays?" },
+  { id: "people", category: "People & HR", name: "Team health snapshot", description: "Performance, satisfaction, tenure, and attrition risk by team.", rows: 24, fileName: "people-hr.csv", question: "Which teams show the strongest performance and satisfaction?" },
+];
 
 export default function Home() {
   const [file, setFile] = useState<File | null>(null);
@@ -20,6 +27,7 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null);
   const [results, setResults] = useState<Result | null>(null);
   const [progress, setProgress] = useState(0);
+  const [selectedSample, setSelectedSample] = useState<string | null>(null);
   const uploadRef = useRef<HTMLElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -30,7 +38,22 @@ export default function Home() {
       return;
     }
     setFile(nextFile);
+    setSelectedSample(null);
     setError(null);
+  };
+
+  const chooseSample = async (sample: SampleDataset) => {
+    try {
+      const response = await fetch(`/sample-datasets/${sample.fileName}`);
+      if (!response.ok) throw new Error("Sample dataset could not be loaded.");
+      const blob = await response.blob();
+      setFile(new File([blob], sample.fileName, { type: "text/csv" }));
+      setSelectedSample(sample.id);
+      setQuestion(sample.question);
+      setError(null);
+    } catch {
+      setError("We couldn't load that sample dataset. Please try again.");
+    }
   };
 
   const analyze = async (event: FormEvent) => {
@@ -75,6 +98,10 @@ export default function Home() {
         <div className="upload-panel"><PanelHeading eyebrow="Dataset" title="Drop your dataset here" icon={<FileSpreadsheet size={23} />} /><label className={`drop-zone ${dragging ? "is-dragging" : ""} ${file ? "has-file" : ""}`} onDragOver={(event) => { event.preventDefault(); setDragging(true); }} onDragLeave={() => setDragging(false)} onDrop={(event) => { event.preventDefault(); setDragging(false); chooseFile(event.dataTransfer.files[0]); }}><input ref={inputRef} type="file" accept=".csv,.json,.xlsx,.xls" onChange={(event) => chooseFile(event.target.files?.[0])} /><span className="upload-icon">{file ? <Check size={22} /> : <Upload size={22} />}</span><strong>{file ? file.name : "Drag and drop your file"}</strong><small>{file ? `${(file.size / 1024).toFixed(1)} KB · Ready to analyze` : "CSV, XLSX or JSON · up to 20 MB"}</small><span className="change-file">{file ? "Choose a different file" : "or choose a file"}</span></label></div>
         <div className="question-panel"><PanelHeading eyebrow="Your question" title="What do you want to know?" icon={<CircleHelp size={22} />} /><textarea value={question} onChange={(event) => setQuestion(event.target.value)} placeholder="Try: Which region is growing fastest?" aria-label="Analytical question" /><div className="question-footer"><span>Leave blank for an exploratory story.</span><button className="button button-primary" type="submit" disabled={loading}>{loading ? <><Loader2 size={17} className="spin" /> Analyzing {progress}%</> : <>Generate my story <ChevronRight size={17} /></>}</button></div></div>
       </form>
+      <section className="sample-section" aria-labelledby="sample-heading">
+        <div className="sample-heading"><div><p className="eyebrow">Or explore a sample dataset</p><h2 id="sample-heading">Start with a story prompt.</h2></div><p>Small, synthetic datasets ready to explore.</p></div>
+        <div className="sample-grid">{SAMPLE_DATASETS.map((sample) => <article className={`sample-card ${selectedSample === sample.id ? "is-selected" : ""}`} key={sample.id}><div className="sample-card-top"><span className="sample-category">{sample.category}</span><span className="sample-rows">{sample.rows} rows</span></div><h3>{sample.name}</h3><p>{sample.description}</p><button className="sample-button" type="button" onClick={() => void chooseSample(sample)}>{selectedSample === sample.id ? <><Check size={15} /> Selected</> : <>Use this dataset <ChevronRight size={15} /></>}</button></article>)}</div>
+      </section>
       {loading && <div className="loading-state" aria-live="polite"><span className="loading-orb"><Sparkles size={22} /></span><div><strong>Finding the story in your data...</strong><p>Reading your file and calculating the patterns that answer your question.</p></div><Loader2 size={19} className="spin loading-spinner" /></div>}
       {error && <div className="error-state" role="alert"><AlertCircle size={20} /><div><strong>We couldn&apos;t build that story.</strong><p>{error}</p></div><button type="button" onClick={() => setError(null)} aria-label="Dismiss error">&times;</button></div>}
     </section>

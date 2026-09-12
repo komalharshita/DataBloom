@@ -1,0 +1,25 @@
+Employee_ID,Department,Team,Tenure_Years,Performance_Score,Satisfaction_Score,Monthly_Absences,Attrition_Risk
+E001,Engineering,Platform,1.2,4.1,4.3,1,Low
+E002,Sales,Enterprise,3.8,4.4,4.0,2,Low
+E003,People,Talent,2.1,3.8,4.6,0,Low
+E004,Engineering,Data,5.4,4.7,4.5,1,Low
+E005,Support,Customer Care,0.8,3.2,3.1,4,High
+E006,Sales,Mid-Market,2.7,4.0,3.8,2,Medium
+E007,Marketing,Growth,4.6,4.5,4.2,1,Low
+E008,Engineering,Platform,6.1,4.8,4.7,0,Low
+E009,Support,Customer Care,1.4,3.5,3.4,3,Medium
+E010,Finance,Planning,3.2,4.2,4.1,1,Low
+E011,Sales,Enterprise,7.3,4.6,4.4,0,Low
+E012,People,Talent,0.6,3.6,3.9,2,Medium
+E013,Engineering,Data,2.9,4.3,4.0,1,Low
+E014,Support,Technical,1.1,3.1,2.9,5,High
+E015,Marketing,Growth,2.4,4.0,3.7,2,Medium
+E016,Finance,Planning,8.2,4.7,4.6,0,Low
+E017,Sales,Mid-Market,4.1,4.2,3.9,2,Medium
+E018,Engineering,Platform,3.6,4.5,4.4,1,Low
+E019,Support,Technical,2.0,3.4,3.2,4,High
+E020,People,Operations,5.7,4.4,4.5,0,Low
+E021,Marketing,Brand,1.8,3.9,3.6,2,Medium
+E022,Finance,Planning,2.6,4.1,4.0,1,Low
+E023,Sales,Enterprise,6.8,4.8,4.3,0,Low
+E024,Support,Customer Care,0.9,3.3,3.0,5,High
