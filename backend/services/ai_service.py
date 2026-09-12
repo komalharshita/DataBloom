@@ -18,7 +18,7 @@ class OpenAIProvider(AIServiceProvider):
         if not self.client:
             raise Exception("OPENAI_API_KEY is not set.")
 
-        system_prompt = \"\"\"
+        system_prompt = """
 You are an expert AI Data Storyteller. Your job is to analyze dataset profiles and user questions to produce a plain-English executive summary, key metrics, recommended visualizations, insights, and data quality observations. 
 
 CRITICAL RULE:
@@ -43,7 +43,7 @@ Provide output as a structured JSON object matching this schema exactly:
   "data_quality": [{"issue": "Issue description", "severity": "low|medium|high"}],
   "recommendations": ["Recommendation 1"]
 }
-\"\"\"
+"""
 
         user_content = f"Dataset Profile:\n{json.dumps(profile, indent=2)}\n\n"
         if question:
