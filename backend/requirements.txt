@@ -1,7 +1,0 @@
-fastapi
-uvicorn
-pandas
-pydantic
-pydantic-settings
-python-multipart
-openai
