@@ -25,6 +25,11 @@ button { cursor: pointer; }
 button:focus-visible, a:focus-visible, textarea:focus-visible, input:focus-visible + * { outline: 3px solid rgba(232, 104, 152, .42); outline-offset: 4px; }
 a { color: inherit; text-decoration: none; }
 
+.custom-cursor { position: fixed; top: 0; left: 0; z-index: 20; width: 16px; height: 16px; pointer-events: none; opacity: 0; transform: translate3d(-100px, -100px, 0); transition: opacity .18s ease, width .24s ease, height .24s ease; will-change: transform, width, height; }.custom-cursor::before, .custom-cursor::after, .custom-cursor span { position: absolute; content: ""; display: block; border-radius: 58% 42% 55% 45% / 45% 58% 42% 55%; }.custom-cursor::before { inset: 0; background: rgba(232, 104, 152, .62); box-shadow: 0 0 12px rgba(232, 104, 152, .16); transform: rotate(18deg); }.custom-cursor::after { inset: 2px 0 0 2px; background: rgba(248, 216, 228, .65); transform: rotate(83deg); }.custom-cursor span { inset: 5px; border-radius: 50%; background: rgba(255, 253, 251, .88); }.custom-cursor[data-visible="true"] { opacity: 1; }.custom-cursor[data-hover="true"] { width: 22px; height: 22px; opacity: .82; }.custom-cursor[data-hover="true"]::before { transform: rotate(42deg); }
+@media (pointer: fine) and (hover: hover) { html.has-custom-cursor, html.has-custom-cursor * { cursor: none !important; } }
+@media (prefers-reduced-motion: reduce) { .custom-cursor { transition: none; } }
+@media (pointer: coarse), (hover: none) { .custom-cursor { display: none; } }
+
 .app-shell { position: relative; isolation: isolate; overflow: hidden; min-height: 100vh; background: #ffdbed; }
 .waves-background { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }.waves-background canvas { display: block; width: 100%; height: 100%; }.app-content { position: relative; z-index: 1; min-height: 100vh; }
 .nav-bar { width: min(1160px, calc(100% - 48px)); height: 76px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
