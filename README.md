@@ -8,6 +8,10 @@
 
 <br/>
 
+## 🎥 Demo Video
+
+[![DataBloom Demo](https://img.youtube.com/vi/MMzjMxYymZg/maxresdefault.jpg)](https://youtu.be/MMzjMxYymZg)
+
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-DataBloom-2f5d50?style=for-the-badge&logo=vercel&logoColor=white)](https://my-data-bloom.vercel.app/)
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-111111?style=for-the-badge&logo=github&logoColor=white)](https://github.com/komalharshita/DataBloom)
 [![Hackathon](https://img.shields.io/badge/Hyperbloom-September%202026-f4a3c7?style=for-the-badge)](#)
