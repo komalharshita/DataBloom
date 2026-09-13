@@ -5,13 +5,12 @@ import axios from "axios";
 import dynamic from "next/dynamic";
 import { AlertCircle, ArrowUpRight, BarChart3, Check, ChevronRight, CircleHelp, FileSpreadsheet, Leaf, Loader2, MessageCircle, Sparkles, Upload } from "lucide-react";
 import Waves from "../components/Waves";
+import { PRECOMPUTED_SAMPLE_STORIES, Result, Visualization } from "../data/sampleStories";
 
 const Plot = dynamic(() => import("react-plotly.js"), { ssr: false });
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL?.replace(/\/+$/, "");
 const API_URL = API_BASE_URL ? `${API_BASE_URL}/api/analyze` : undefined;
 
-type Visualization = { title: string; type: string; x: string; y?: string; x_data?: unknown[]; y_data?: unknown[]; insight?: string; rationale?: string };
-type Result = { summary?: string; executive_summary?: string; key_metrics?: { name: string; value: string }[]; visualizations?: Visualization[]; insights?: string[]; recommendations?: string[]; data_quality?: { issue: string; severity: string }[]; overview?: { rows?: number } };
 type SampleDataset = { id: string; category: string; name: string; description: string; rows: number; fileName: string; question: string };
 
 const SAMPLE_DATASETS: SampleDataset[] = [
@@ -60,8 +59,16 @@ export default function Home() {
   const analyze = async (event: FormEvent) => {
     event.preventDefault();
     if (!file) { setError("Choose a dataset before starting your story."); return; }
-    if (!API_URL) { setError("Analysis is not configured. Set NEXT_PUBLIC_API_URL and try again."); return; }
     setLoading(true); setError(null); setResults(null); setProgress(0);
+    if (selectedSample) {
+      await new Promise((resolve) => window.setTimeout(resolve, 450));
+      setResults(PRECOMPUTED_SAMPLE_STORIES[selectedSample]);
+      setProgress(100);
+      setLoading(false);
+      window.setTimeout(() => document.getElementById("results")?.scrollIntoView({ behavior: "smooth" }), 80);
+      return;
+    }
+    if (!API_URL) { setLoading(false); setError("Analysis is not configured. Set NEXT_PUBLIC_API_URL and try again."); return; }
     const data = new FormData();
     data.append("file", file);
     if (question.trim()) data.append("question", question.trim());
