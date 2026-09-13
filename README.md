@@ -8,7 +8,7 @@
 
 <br/>
 
-## 🎥 Demo Video
+## Click the picture below to view the Demo Video
 
 [![DataBloom Demo](https://img.youtube.com/vi/MMzjMxYymZg/maxresdefault.jpg)](https://youtu.be/MMzjMxYymZg)
 
